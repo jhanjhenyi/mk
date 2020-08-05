@@ -1,2 +1,2 @@
 has migrations:
-  - **/migrations/*.py
+  - '**/migrations/*.py'
