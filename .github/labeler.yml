@@ -1,2 +1,2 @@
-Type: Migrations:
+Migrations:
   - '**/migrations/*.py'
