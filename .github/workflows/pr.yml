@@ -2,8 +2,7 @@ name: Run tests
 
 on:
   schedule:
-    - cron: '*/2 * * * *'  # every day at midnight
-
+    - cron: '* * * * *'
 jobs:
   deploy:
     runs-on: ubuntu-18.04
