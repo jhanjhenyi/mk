@@ -1,7 +1,6 @@
 name: PR
 
 on:
-  push:
   schedule:
     - cron: '*/5 * * * *'
 
