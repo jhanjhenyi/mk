@@ -3,6 +3,7 @@ name: PR
 on:
   schedule:
     - cron: '* * * * *'
+
 jobs:
   abc:
     runs-on: ubuntu-18.04
@@ -14,4 +15,4 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: develop
+          branch: master
