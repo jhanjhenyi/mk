@@ -1,23 +1,17 @@
-name: PR
+name: Sync
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron:  '*/5 * * * *'
 
 jobs:
-  abc:
-    runs-on: ubuntu-18.04
+  updateFork:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      # Make changes to pull request here
-
-      # - name: Create Pull Request
-      #   uses: peter-evans/create-pull-request@v3
-      #   with:
-      #     branch: develop
-      #     base: msater
-      #     title: '[Example] Update report'
-      #     labels: |
-      #       report
-      #       automated pr
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.PAT }}
+          branch: develop
