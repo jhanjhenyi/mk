@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '* * * * *'
 jobs:
-  deploy:
+  abc:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -13,3 +13,5 @@ jobs:
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
+        with:
+          branch: develop
