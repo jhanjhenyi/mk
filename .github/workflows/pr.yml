@@ -10,17 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # Make changes to pull request here
-
-      # - name: Create Pull Request
-      #   uses: peter-evans/create-pull-request@v3
-      #   with:
-      #     branch: develop
-      #     assignees: JhenYi Jhan
-
       - name: pull-request-action
         uses: vsoch/pull-request-action@1.0.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_BRANCH: master
           PULL_REQUEST_FROM_BRANCH: develop
+          PULL_REQUEST_ASSIGNEES: JhenYi Jhan
+          PULL_REQUEST_TITLE: Sync develop 2020/01/01
