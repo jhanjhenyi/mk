@@ -12,12 +12,12 @@ jobs:
 
       # Make changes to pull request here
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          branch: develop
-          base: msater
-          title: '[Example] Update report'
-          labels: |
-            report
-            automated pr
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v3
+      #   with:
+      #     branch: develop
+      #     base: msater
+      #     title: '[Example] Update report'
+      #     labels: |
+      #       report
+      #       automated pr
