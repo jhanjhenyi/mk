@@ -1,7 +1,6 @@
 name: PR
 
 on:
-  push:
   schedule:
     - cron: '*/5 * * * *'
 
@@ -13,9 +12,15 @@ jobs:
 
       # Make changes to pull request here
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          branch: master
-          base: develop
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v3
+      #   with:
+      #     branch: develop
+      #     assignees: JhenYi Jhan
 
+      - name: pull-request-action
+        uses: vsoch/pull-request-action@1.0.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_BRANCH: master
+          PULL_REQUEST_FROM_BRANCH: develop
