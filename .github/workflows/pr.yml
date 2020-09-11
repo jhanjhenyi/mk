@@ -2,7 +2,7 @@ name: PR
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '10 18 * * *'
 
 jobs:
   abc:
@@ -10,6 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y/%m/%d')"
 
       - name: pull-request-action
         uses: vsoch/pull-request-action@1.0.6
@@ -17,5 +20,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_BRANCH: master
           PULL_REQUEST_FROM_BRANCH: develop
-          PULL_REQUEST_ASSIGNEES: JhenYi Jhan
-          PULL_REQUEST_TITLE: Sync develop 2020/01/01
+          PULL_REQUEST_ASSIGNEES: jhanjhenyi
+          PULL_REQUEST_TITLE: sync develop ${{ steps.date.outputs.date }}
