@@ -2,7 +2,7 @@ name: PR
 
 on:
   schedule:
-    - cron: '10 18 * * *'
+    - cron: '35 6 * * *'
 
 jobs:
   abc:
@@ -14,11 +14,17 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y/%m/%d')"
 
-      - name: pull-request-action
-        uses: vsoch/pull-request-action@1.0.6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PULL_REQUEST_BRANCH: master
-          PULL_REQUEST_FROM_BRANCH: develop
-          PULL_REQUEST_ASSIGNEES: jhanjhenyi
-          PULL_REQUEST_TITLE: sync develop ${{ steps.date.outputs.date }}
+      # - name: pull-request-action
+      #   uses: vsoch/pull-request-action@1.0.6
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     PULL_REQUEST_BRANCH: master
+      #     PULL_REQUEST_FROM_BRANCH: develop
+      #     PULL_REQUEST_ASSIGNEES: jhanjhenyi
+      #     PULL_REQUEST_TITLE: sync develop ${{ steps.date.outputs.date }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: develop
+          title: sync develop ${{ steps.date.outputs.date }}
