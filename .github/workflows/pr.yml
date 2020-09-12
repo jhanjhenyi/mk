@@ -2,7 +2,7 @@ name: PR
 
 on:
   schedule:
-    - cron: '35 6 * * *'
+    - cron: '10 8 * * *'
 
 jobs:
   abc:
@@ -27,4 +27,5 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           branch: develop
+          base: master
           title: sync develop ${{ steps.date.outputs.date }}
