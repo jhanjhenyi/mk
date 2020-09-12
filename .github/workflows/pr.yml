@@ -26,8 +26,12 @@ jobs:
       #     PULL_REQUEST_ASSIGNEES: jhanjhenyi
       #     PULL_REQUEST_TITLE: sync develop ${{ steps.date.outputs.date }}
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
         with:
-          branch: master
-          title: sync develop ${{ steps.date.outputs.date }}
+          source_branch: "develop"
+          destination_branch: "master"
+          pr_title: sync develop ${{ steps.date.outputs.date }}
+          pr_assignee: jhanjhenyi
+          pr_label: "Type: Maintenance"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
