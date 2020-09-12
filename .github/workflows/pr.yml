@@ -2,8 +2,7 @@ name: Sync
 
 on:
   schedule:
-    # 台灣時間每週二早上十點
-    - cron: '50 9 * * 6'
+    - cron: '0 10 * * 6'
 
 jobs:
   build:
