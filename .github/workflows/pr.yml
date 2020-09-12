@@ -1,14 +1,17 @@
 name: PR
 
 on:
+  push:
   schedule:
-    - cron: '5 9 * * *'
+    - cron: '20 9 * * *'
 
 jobs:
   abc:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: develop
 
       - name: Get current date
         id: date
@@ -27,5 +30,4 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           branch: master
-          base: develop
           title: sync develop ${{ steps.date.outputs.date }}
