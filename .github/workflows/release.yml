@@ -15,5 +15,10 @@ jobs:
 
     steps:
       - name: My first step
-        if: github.event.pull_request.merged == true
+        # if: github.event.pull_request.merged == true
         run: echo This event is a pull request that had an assignee removed.
+
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
