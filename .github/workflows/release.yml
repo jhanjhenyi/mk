@@ -16,7 +16,9 @@ jobs:
     steps:
       - name: My first step
         if: github.event.pull_request.merged == true && github.head_ref == 'develop' && github.base_ref == 'master'
-        run: echo "$github.event.pull_request.body"
+        env:
+          GITHUB_CONTEXT: ${{ github.event.pull_request.body }}
+        run: echo "$GITHUB_CONTEXT"
 
       - name: Dump GitHub context
         env:
