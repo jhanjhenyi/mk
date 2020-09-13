@@ -15,8 +15,8 @@ jobs:
 
     steps:
       - name: My first step
-        # if: github.event.pull_request.merged == true
-        run: echo This event is a pull request that had an assignee removed.
+        if: github.event.pull_request.merged == true && github.head_ref == 'develop' && github.base_ref == 'master'
+        run: echo "$github.event.pull_request.body"
 
       - name: Dump GitHub context
         env:
